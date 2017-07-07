@@ -1,7 +1,19 @@
 language: php
-dist: trusty
+
+dist: xenial
+
 php:
-- 5.5
-- 5.4
-- hhvm
-script: phpunit Test.php
+  - 7.0
+
+env: 
+  -BD=pgsql
+  
+before_install:
+  -sudo apt-get update -q
+  
+install: -/install-dependencies.sh
+
+before_scrpt: true
+
+script:
+  -phpunit Test.php
