@@ -1,19 +1,21 @@
 language: php
 
-dist: xenial
+dist: xenial 
 
 php:
-  - 7.0
+- 7.0
 
-env: 
-  -BD=pgsql
-  
+env:
+- BD=pgsql
+
 before_install:
-  -sudo apt-get update -q
-  
-install: -/install-dependencies.sh
+- sudo apt-get update -q
+- sudo apt-get install apache2 -y
 
-before_scrpt: true
+install: ./install-dependencies.sh
 
-script:
-  -phpunit Test.php
+before_script: true
+
+script: 
+- phpunit Test.php
+
